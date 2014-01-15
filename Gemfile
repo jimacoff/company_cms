@@ -87,7 +87,3 @@ group :test do
   gem 'selenium-webdriver', '2.39.0'
   gem 'capybara', '2.2.0'
 end
-
-
-# Use unicorn as the app server
-# gem 'unicorn'
