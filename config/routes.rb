@@ -1,15 +1,15 @@
 Website::Application.routes.draw do
 
   # Locele param in app
-  scope "(:locale)", locale: /en|vi/ do
+  scope '(:locale)', locale: /en|vi/ do
     # Admin path
     scope module: 'admin', path: 'boss' do
       # Main admin path
       get '/' => 'sessions#new', as: :boss
       # Session routes
       resources :sessions, only: [:new, :create, :destroy]
-      get '/login' => 'sessions#new'
-      delete '/logout' => 'sessions#destroy'
+      get 'login' => 'sessions#new'
+      delete 'logout' => 'sessions#destroy'
 
       # Account path
       get 'account' => 'users#edit'
