@@ -1,0 +1,34 @@
+<% provide :title, dashboard_title(t('message_list')) %>
+<div class="row">
+  <h1><%= t('message_list') %></h1>
+</div>
+
+<div class="row">
+  <%= render 'admin/shared/success_alert' %>
+  <div class="table-responsive message-list">
+    <table class="table-hover table-bordered table-striped">
+      <% @messages.each do |message| %>
+        <tr>
+          <td class="col-md-2">
+            <%= message.created_at.to_formatted_s(:long) %>
+          </td>
+          <td class="col-md-2">
+            <p><%= message.name %></p>
+            <p><%= message.email %></p>
+          </td>
+          <td class="col-md-7">
+            <p><%= message.subject %></p>
+            <p><%= message.message %></p>
+          </td>
+          <td class="col-md-1 options">
+            <%= link_to message_path(message), class: 'message-delete', method: :delete, data: { confirm: t(:delete_notice) } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <%= will_paginate @messages, renderer: BootstrapPagination::Rails %>
+</div>

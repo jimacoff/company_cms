@@ -1,0 +1,13 @@
+# application_settings.yml
+# ========================
+# This file is used to setup an application wide hash to hold general settins. Any settings declared
+# in this YAML file should be directly available in the ApplicationSettings class.
+
+development:
+  max_filesize: 5
+
+test:
+  max_filesize: 5
+
+production:
+  max_filesize: 2

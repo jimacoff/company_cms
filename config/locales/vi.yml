@@ -1,0 +1,3 @@
+vi:
+  hello: "Xin chào"
+  login_error: "Username và mật khẩu không chính xác"

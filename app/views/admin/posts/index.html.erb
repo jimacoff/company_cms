@@ -1,0 +1,38 @@
+<% provide :title, dashboard_title(t('blog')) %>
+<div class="row">
+  <h1><%= t('blog') %></h1>
+</div>
+
+<div class="row">
+  <%= render 'admin/shared/success_alert' %>
+
+  <%= link_to t('add_new_post'), new_post_path, class: 'btn btn-lg btn-primary' %>
+
+  <div class="table-responsive post-list">
+    <table class="table table-hover table-bordered table-striped">
+      <% @posts.each do |post| %>
+      <tr>
+        <td class="image col-md-3">
+          <%= post.created_at.to_formatted_s(:long) %>
+        </td>
+        <td class="col-md-7">
+          <p><%= post.title %></p>
+          <a href="<%= post_path(post)%>" class="post-info">
+            <i class="fa fa-info-circle"></i> <%= t('more_info') %>
+          </a>
+        </td>
+        <td class="col-md-2 options">
+          <%= link_to edit_post_path(post), class: 'post-edit' do %>
+            <i class="fa fa-wrench"></i>
+          <% end %>
+          <%= link_to post_path(post), class: 'post-delete', method: :delete, data: { confirm: t(:delete_notice) } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+</div>
+
+<div class="modal fade" id="post-info-modal" tabindex="-1" role="dialog" aria-labelledby="post-info-modal" aria-hidden="true">
+</div><!-- /.modal -->

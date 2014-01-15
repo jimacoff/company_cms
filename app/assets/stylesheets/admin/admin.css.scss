@@ -1,0 +1,229 @@
+/* Main style for admin page */
+body.admin {
+  margin-top: 50px;
+}
+.clr {
+  clear: both;
+}
+
+#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+  height: 100%;
+
+  #page-content-wrapper {
+    width: 100%;
+  }
+}
+
+.inset {
+  padding: 5px 30px;
+}
+
+/* Style for navbar */
+.navbar-default {
+  .navbar-nav > li > a {
+    color: #fff;
+  }
+
+  .navbar-nav > li > a:hover {
+    color: #777;
+  }
+
+  .container-dashboard {
+    width: 98%;
+  }
+
+  .brand-div {
+    #menu-toggle {
+      background: transparent;
+      color: white;
+      float: left;
+      margin-top: 8px;
+      margin-left: 15px;
+      position: relative;
+    }
+  }
+
+  .navbar-brand {
+    color: #fff;
+  }
+}
+
+/* Manifig Popup */
+.mfp-title {
+  text-align: center;
+  padding: 6px 0;
+}
+
+/* Error fields */
+.field_with_errors {
+  color: #a94442;
+
+  .form-control {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  }
+}
+
+.error-help {
+  color: #a94442;
+}
+
+/* List service, team member, work, message, post page */
+.service-list, .member-list, .work-list, .message-list, .post-list {
+  margin-top: 20px;
+
+  table {
+    .options {
+      text-align: center;
+
+      i {
+        margin-right: 5px;
+        font-size: 18px;
+      }
+    }
+
+    .image {
+      text-align: center;
+
+      img {
+        width: 100%;
+      }
+    }
+
+  }
+}
+
+.member-list {
+  .image {
+    .img-circle {
+      width: 180px;
+      height: 180px
+    }
+  }
+}
+
+.work-list table .image img {
+  width: 48%;
+  margin: 1%;
+  float: left;
+}
+
+/* Add new & edit service form */
+/* Add new & edit member form */
+/* Add new & edit work form */
+/* Add new & edit post form */
+.new_service, .edit_service, .new_team_member, .edit_team_member, .new_work, .new_post {
+  textarea {
+    min-height: 150px;
+  }
+
+  .form-group {
+    .fileinput {
+      .thumbnail {
+        width: 400px;
+      }
+    }
+  }
+
+  .field_with_errors {
+    input[type="file"] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      font-size: 23px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      transform: translate(-300px, 0) scale(4);
+      direction: ltr;
+    }
+  }
+}
+
+/* Work detail page */
+.work-delete {
+  float: right;
+}
+.work-detail {
+  .work-row {
+    margin-bottom: 20px;
+  }
+}
+
+.images-list {
+  .images-option {
+    margin-bottom: 10px;
+  }
+
+  .popup-gallery {
+    img {
+      cursor: -webkit-zoom-in;
+      cursor: -moz-zoom-in;
+      cursor: zoom-in;
+      border-bottom: 0;
+      height: 75px;
+      display: block;
+      float: left;
+      margin: 0 5px 5px 0;
+      width: 75px;
+    }
+  }
+}
+
+/* Add Images for work page */
+.add-images-zone {
+  .options {
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .alert {
+    display: none;
+  }
+
+  .dropzone {
+    margin-bottom: 20px;
+  }
+
+  .image-warning {
+    font-style: italic;
+  }
+}
+
+/* Post info modal */
+#post-info-modal {
+  .modal-dialog {
+    .modal-body {
+      overflow-x: scroll;
+    }
+
+    @media (min-width: 1024px) {
+      width: 60%;
+    }
+  }
+}
+
+/* Modal overlay */
+.background-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+
+  .loading-modal {
+    width: 90%;
+    margin: 200px auto;
+
+    @media (min-width: 768px) {
+      width: 40%;
+    }
+  }
+}

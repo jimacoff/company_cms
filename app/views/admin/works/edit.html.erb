@@ -1,0 +1,39 @@
+<% provide :title, dashboard_title(t('edit_work')) %>
+<div class="row">
+  <h1><%= t('edit_work_for', work: @work.name)%></h1>
+</div>
+
+<div class="row">
+
+  <%= form_for @work, method: :patch, html: { role: 'form', multipart: true }  do |f| %>
+
+  <% error_mes = @work.errors.messages %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control", placeholder: t('name'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:name] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :client %>
+      <%= f.text_field :client, class: "form-control", placeholder: t('client'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:client] %>
+    </div>
+
+
+    <div class="form-group ">
+      <%= f.label :story %>
+      <%= f.text_area :story, class: "form-control", placeholder: t('story'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:story] %>
+    </div>
+
+    <div class="form-group ">
+      <%= f.label :techs %>
+      <%= f.text_field :techs, class: "form-control", placeholder: t('tech_used'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:techs] %>
+    </div>
+
+    <%= f.submit 'Submit', class: 'btn btn-lg btn-primary' %>
+  <% end %>
+</div>

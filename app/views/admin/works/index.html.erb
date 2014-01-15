@@ -1,0 +1,34 @@
+<% provide :title, dashboard_title(t(:work_list)) %>
+<div class="row">
+  <h1><%= t(:work_list) %></h1>
+</div>
+
+<div class="row">
+  <%= render 'admin/shared/success_alert' %>
+
+  <%= link_to t('add_new_work'), new_work_path, class: 'btn btn-lg btn-primary' %>
+
+  <div class="table-responsive work-list">
+    <table class="table table-hover table-bordered table-striped">
+      <% @works.each do |work| %>
+      <tr>
+        <td class="image col-md-3">
+          <% front_images = work.images[0..3] %>
+          <% front_images.each do |image| %>
+            <img src="<%= image.file_url(:thumb) %>" class="img-rounded" />
+          <% end %>
+        </td>
+        <td class="cold-md-9">
+          <h4><%= work.name %></h4>
+          <p><%= work.client %></p>
+          <%= link_to work_path(work) do %>
+            <i class="fa fa-info-circle"></i> <%= t('more_info') %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <%= will_paginate @services, renderer: BootstrapPagination::Rails %>
+</div>

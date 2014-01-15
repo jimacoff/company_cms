@@ -1,0 +1,9 @@
+AllCops:
+  Includes:
+    - tasks/*.rake
+  Excludes:
+    - tmp/*
+    - vendor/*
+    - spec/*
+    - bin/*
+    - db/schema.rb

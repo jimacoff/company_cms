@@ -1,0 +1,35 @@
+<% provide :title, dashboard_title('Service List') %>
+<div class="row">
+  <h1>Service List</h1>
+</div>
+
+<div class="row">
+  <%= render 'admin/shared/success_alert' %>
+
+  <%= link_to "Add New Service", new_service_path, class: "btn btn-lg btn-primary" %>
+  <div class="table-responsive service-list">
+    <table class="table table-hover table-bordered table-striped">
+      <% @services.each do |service| %>
+      <tr>
+        <td class="image col-md-3">
+          <img src="<%= service.image_url(:thumb) %>" class="img-rounded" />
+        </td>
+        <td>
+          <p><%= service.name %></p>
+          <p><%= service.description %></p>
+        </td>
+        <td class="options col-md-1">
+          <%= link_to edit_service_path(service), class: 'service-edit' do %>
+            <i class="fa fa-wrench"></i>
+          <% end %>
+          <%= link_to service_path(service), class: 'service-delete', method: :delete, data: { confirm: t(:delete_notice) } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <%= will_paginate @services, renderer: BootstrapPagination::Rails %>
+</div>

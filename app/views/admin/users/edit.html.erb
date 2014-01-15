@@ -1,0 +1,54 @@
+<% provide(:title, dashboard_title('Edit Account')) %>
+<div class="row">
+  <h1>Edit Account</h2>
+</div>
+
+<div class="row">
+  <% error_mes = @user.errors.messages %>
+  <% if (!@user.errors.empty?) %>
+    <div class="alert alert-danger fade in">
+      <%= t('validation_error') %>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    </div>
+  <% end %>
+
+  <%= render 'admin/shared/success_alert' %>
+
+  <%= form_for @user, url: account_path, method: :patch, html: { role: 'form' }  do |f| %>
+
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control", placeholder: "Username", required: "", autofocus: "", value: @user.username %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:username] %>
+    </div>
+
+    <div class="form-group ">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control", placeholder: "Email", required: "", autofocus: "", value: @user.email %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:email] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, t('new_password') %>
+      <%= f.password_field :password, class: "form-control", placeholder: "Password"  %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:password] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation, t('new_password_confirmation') %>
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:password_confirmation] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :old_password %>
+      <%= f.password_field :old_password, class: "form-control", placeholder: "Old Password", required: "" %>
+      <span class="help-block"><%= t('old_password_required') %></span>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:old_password] %>
+    </div>
+
+    <%= f.submit 'Submit', class: 'btn btn-lg btn-primary' %>
+  <% end %>
+
+</div>
+

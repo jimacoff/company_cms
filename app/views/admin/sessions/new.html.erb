@@ -1,0 +1,20 @@
+<% provide(:title, dashboard_title('Log In')) %>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<div class="container">
+
+  <%= form_for :session, url: sessions_path, method: :post, html: { class: "form-signin" } do |f| %>
+    <h1 class="form-signin-heading text-muted">Log In</h1>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger fade in">
+        <%= flash[:alert] %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      </div>
+    <% end %>
+
+    <%= f.text_field :username, class: "form-control", placeholder: "Username", required: "", autofocus: "" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Password", required: "" %>
+    <%= f.submit "Log In", class: "btn btn-lg btn-primary btn-block" %>
+  <% end %>
+</div>

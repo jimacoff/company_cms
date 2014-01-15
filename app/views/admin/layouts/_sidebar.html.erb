@@ -1,0 +1,23 @@
+<div id="sidebar-wrapper-admin">
+  <ul class="sidebar-nav">
+    <li>
+      <a href="<%= services_path %>" class="<%= controller.controller_name == 'services'  ? 'activated' : '' %>">
+        <i class="fa fa-comments-o icon-color"></i> &nbsp&nbsp Services
+      </a>
+    </li>
+    <li>
+      <a href="<%= team_members_path %>" class="<%= controller.controller_name == 'team_members' ? 'activated' : '' %>"><i class="fa fa-user icon-color"></i> &nbsp&nbsp Team Members</a>
+    </li>
+    <li>
+      <a href="<%= works_path %>" class="<%= controller.controller_name == 'works' ? 'activated' : '' %>"><i class="fa fa-file-text icon-color"></i> &nbsp&nbsp Works </a>
+    </li>
+    <li>
+      <a href="<%= messages_path %>" ><i class="fa fa-envelope icon-color"></i> &nbsp&nbsp Messages</a>
+    </li>
+    <li>
+      <a href="<%= posts_path %>" ><i class="fa fa-file-text icon-color"></i> &nbsp&nbsp Blog</a>
+    </li>
+  </ul>
+
+  <div class="clr"></div>
+</div>

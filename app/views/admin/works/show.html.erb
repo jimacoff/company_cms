@@ -1,0 +1,62 @@
+<% provide :title, dashboard_title(@work.name) %>
+<div class="row">
+  <h1>
+    <%= t 'work_detail', work: @work.name %>
+    <%= link_to t('delete_this_work'), work_path(@work), class: 'btn btn-md btn-danger work-delete', method: :delete, data: { confirm: t(:delete_notice) }  %>
+  </h1>
+</div>
+<div class="row">
+  <%= render 'admin/shared/success_alert' %>
+</div>
+
+<div class="row">
+  <div class="work-detail col-md-6">
+    <h2><%= t('general_info')%></h1>
+    <div class="work-row">
+      <h4><%= t('name') %></h4>
+      <p><%= @work.name %></p>
+    </div>
+
+    <div class="work-row">
+      <h4><%= t('client') %></h4>
+      <p><%= @work.client %></p>
+    </div>
+
+    <div class="work-row">
+      <h4><%= t('story') %></h4>
+      <p><%= @work.story %></p>
+    </div>
+
+    <div class="work-row">
+      <h4><%= t('tech_used') %></h4>
+      <p><%= @work.techs %></p>
+    </div>
+
+    <div class="work-row">
+      <%= link_to t('edit'), edit_work_path(@work), class: 'btn btn-md btn-primary' %>
+    </div>
+  </div>
+
+  <div class="images-list col-md-6">
+    <h2><%= t('images')%></h2>
+
+    <div class="images-option">
+      <%= link_to t('add_images'), new_work_image_path(@work), class: 'btn btn-md btn-primary' %>
+    </div>
+
+    <% if flash[:delete_image_success] %>
+      <div class="alert alert-success fade in">
+        <%= flash[:delete_image_success] %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      </div>
+    <% end %>
+
+    <div class="popup-gallery">
+      <% @work.images.each do |image| %>
+        <a href="<%= image.file_url %>" data-url="<%= image_path(image) %>" class="work-image">
+          <%= image_tag image.file_url(:thumb) %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</div>

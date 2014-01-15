@@ -1,0 +1,42 @@
+<div id="contact">
+  <!-- Map -->
+  <div class="map">
+    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a></small></iframe>
+
+  </div>
+  <!-- /Map -->
+
+  <!-- Contact Form -->
+  <div id="contact-form">
+    <div class="alert alert-success fade in">
+      <%= t('message_sent_success') %>
+    </div>
+    <%= form_for Message.new, url: front_messages_path, method: :post, html: { role: 'form', multipart: true }  do |f| %>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control", placeholder: t('email'), required: "", autofocus: "", type: "email" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", placeholder: t('name'), autofocus: "" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :subject %>
+        <%= f.text_field :subject, class: "form-control", placeholder: t('subject'), autofocus: "" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :message %>
+        <%= f.text_area :message, class: "form-control", placeholder: t('message'), required: "", autofocus: "" %>
+      </div>
+
+
+      <%= f.submit 'Submit', class: 'btn btn-lg btn-primary' %>
+    <% end %>
+  </div>
+  <!-- /Contact Form -->
+</div>

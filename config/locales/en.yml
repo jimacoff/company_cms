@@ -1,0 +1,64 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  login_error: "Invalid username/password combination"
+  delete_notice: "You sure?"
+  service_name: "Service Name"
+  add_new_service: "Add New Service"
+  service_list: "Service List"
+  description: "Description"
+  member_title: "Cool Title"
+  member_name: "Member Name"
+  add_new_member: "Add New Member"
+  member_list: "Team List"
+  add_new_work: "Add New Work"
+  work_list: "Work List"
+  work_detail: "%{work}'s Details'"
+  edit_work: "Edit Work"
+  add_images: "Add Images"
+  add_images_for: "Add Images for %{work}"
+  edit_work_for: "Edit %{work}"
+  client: "Client"
+  story: "Story"
+  name: "Name"
+  tech_used: "Technology Used"
+  image_warning: "Image must have extension .jpg, .jpeg, .gif, .png and < 2 MB in size"
+  message_list: "Message List"
+  email: "Email"
+  subject: "Subject"
+  message: "Message"
+  message_sent_success: "Your message has been sent successfully. We will get back to you soon!"
+  blog: "Blog"
+  add_new_post: "Add New Post"
+  title: "Title"
+  content: "Content"
+  submit: "Submit"
+  edit_post: "Edit Post"
+  errors:
+    messages:
+      wrong_size: "is the woring size (should be %{file_size})"
+      size_too_small: "is too small (should be at least %{file_size})"
+      size_too_big: "is too big (should be at most %{file_size})"
+      carrierwave_processing_error: "failed to be processed"
+      carrierwave_integrity_error: "is not an allowed file type"
+      carrierwave_download_error: "Couldn't download image"

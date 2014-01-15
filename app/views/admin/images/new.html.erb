@@ -1,0 +1,21 @@
+<%= provide :title, dashboard_title(t('add_images')) %>
+<div class="row">
+  <h1><%= sanitize t('add_images_for', work: link_to(@work.name, work_path(@work))) %></h1>
+</div>
+
+<div class="row add-images-zone">
+  <p class="image-warning"><%= t 'image_warning' %></p>
+  <%= form_tag work_images_path(@work), method: :post, multipart: true, class: 'dropzone', id: 'work-images-dropzone' do %>
+  <% end %>
+
+  <div class="alert alert-success">
+    <%= t('add_images_success') %>. <%= link_to t('return'), work_path(@work) %> or <%= link_to t('continue_add_images'), '#', class: 'continue-images' %>
+  </div>
+  <div class="alert alert-danger">
+    <%= t('add_images_error') %>. <%= link_to t('cancel'), work_path(@work) %> or <%= link_to t('retry'), '#', class: 'continue-images' %>
+  </div>
+
+  <div class="options">
+    <%= button_tag t('submit_images'), class: 'btn btn-lg btn-primary', id: 'submit-all', disabled: 'disabled' %>
+  </div>
+</div>
