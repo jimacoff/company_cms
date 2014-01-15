@@ -47,7 +47,6 @@ gem 'will_paginate-bootstrap', '~> 1.0.0'
 gem 'faker', '~> 1.2.0'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'thin'
 gem 'unicorn'
 
 group :doc do
@@ -57,6 +56,7 @@ end
 
 
 group :development, :test do
+  gem 'thin'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'guard-rubocop'
@@ -84,6 +84,6 @@ group :development do
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.39.0'
-  gem 'capybara', '2.2.0'
+  gem 'selenium-webdriver', '~> 2.39.0'
+  gem 'capybara', '~> 2.2.0'
 end

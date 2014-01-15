@@ -6,7 +6,6 @@ class Admin::SessionsController < Admin::BaseController
 
   # Render the login page
   def new
-
   end
 
   # Handle the login process

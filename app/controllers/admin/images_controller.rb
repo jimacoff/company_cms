@@ -19,7 +19,6 @@ class Admin::ImagesController < Admin::BaseController
         format.json { render status: 400, json: { status: 0, error: image.errors.messages[:file][0] } }
       end
     end
-
   end
 
   def destroy
