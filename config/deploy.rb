@@ -25,6 +25,17 @@ set :rbenv_roles, :all # default value
 
 namespace :deploy do
 
+  desc 'Seed default dabase'
+  task :seed => [:set_rails_env] do
+    on roles(:db) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "db:seed"
+        end
+      end
+    end
+  end
+
   desc 'Start application'
   task :start do
     on roles(:app), in: :sequence, wait: 5 do

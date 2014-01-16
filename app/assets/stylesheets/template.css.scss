@@ -109,7 +109,7 @@ body {
   height: 100%;
   width: 100%;
   position: relative;
-  background: url(bg.jpg) no-repeat center center fixed;
+  background: url(asset-path('bg.jpg')) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -153,7 +153,7 @@ i.service-icon {
   display: table;
   height: 400px;
   width: 100%;
-  background: url(callout.jpg) no-repeat center center fixed;
+  background: url(asset-path('callout.jpg')) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
