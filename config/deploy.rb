@@ -63,7 +63,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       within release_path do
-        execute :rake, 'cache:clear'
+        execute :rake, 'tmp:clear'
       end
     end
   end
@@ -77,5 +77,6 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:cleanup'
+  after :finished, 'deploy:restart'
 
 end
