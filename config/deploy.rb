@@ -28,14 +28,14 @@ namespace :deploy do
   desc 'Start application'
   task :start do
     on roles(:app), in: :sequence, wait: 5 do
-      run "/etc/init.d/unicorn_#{fetch(:application)} start"
+      execute "/etc/init.d/unicorn_#{fetch(:application)} start"
     end
   end
 
   desc 'Stop application'
   task :stop do
     on roles(:app), in: :sequence, wait: 5 do
-      run "/etc/init.d/unicorn_#{fetch(:application)} stop"
+      execute "/etc/init.d/unicorn_#{fetch(:application)} stop"
     end
   end
 
@@ -44,7 +44,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
-      run "/etc/init.d/unicorn_#{fetch(:application)} restart"
+      execute "/etc/init.d/unicorn_#{fetch(:application)} restart"
     end
   end
 
