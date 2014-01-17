@@ -1,5 +1,10 @@
 @import "colors";
 
+$nprogress-color: $wood;
+@import 'nprogress';
+@import 'nprogress-bootstrap';
+
+
 // Global Nav
 .navbar-inverse {
 	@extend .bg-risk;

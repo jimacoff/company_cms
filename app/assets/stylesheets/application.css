@@ -9,8 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  
  *= require libraries
- *= require nprogress
- *= require nprogress-bootstrap
  *= require template
  *= require custom
  */
