@@ -67,26 +67,6 @@ $(document).on 'ready page:load page:restore', ->
           myDropzone.processQueue()
 
 
-  # Contact form handling (parsley)
-  $('#contact-form #new_message').parsley()
-  $('#contact-form #new_message').submit (e) ->
-    e.preventDefault()
-    that = this
-
-    # Only submit the form if client side validation is valid
-    if $(this).parsley('isValid')
-      url = $(this).attr('action')
-      data = $(this).serialize()
-      $.ajax
-        type: 'POST',
-        url: url,
-        data: data,
-        dataType: 'json',
-        success: (res) ->
-          if res.status == 1
-            $(that).fadeOut ->
-              $('#contact-form .alert-success').fadeIn()
-
 
   # Function to upload file for post content
   uploadFile = (file, cb) ->

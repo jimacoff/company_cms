@@ -21,4 +21,4 @@
 //= require nprogress-turbolinks
 //= require dropzone
 //= require summernote/dist/summernote
-//= require admin
+//= require dashboard
