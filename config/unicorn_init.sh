@@ -1,4 +1,24 @@
 #!/bin/sh
+#
+# unicorn_company_website        Startup script for unicorn for company website
+#
+# chkconfig: - 86 14
+# processname: unicorn_company_website
+# pidfile: /var/www/thecompany/current/tmp/pids/unicorn.pid
+# description: Rails application server for company website
+#
+### BEGIN INIT INFO
+# Provides: unicron_company_website
+# Required-Start: $local_fs $remote_fs $network
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 3
+# Default-Stop: 0 1 2 4 5 6
+# Short-Description: start and stop unicorn
+### END INIT INFO
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
 set -e
 
 # Feel free to change any of the following variables for your app:
