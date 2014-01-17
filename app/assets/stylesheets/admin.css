@@ -9,8 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  
  *= require libraries
+ *= require font-awesome
+ *= require jasny-bootstrap/css/jasny-bootstrap
  *= require nprogress
  *= require nprogress-bootstrap
- *= require template
- *= require custom
+ *= require magnific-popup
+ *= require dropzone/dropzone
+ *= require summernote/dist/summernote
+ *= require_tree ./admin
  */
