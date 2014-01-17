@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
     uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 },  confirmation: { on: :update }, allow_blank: { on: :update }
+  validates :password, length: { minimum: 6 },
+    confirmation: { on: :update }, allow_blank: { on: :update }
   validates :old_password, presence: true, on: :update
 
   has_secure_password
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
 
   # validation to check for a correct old password
   def correct_old_password
-    old_user = User.find(id);
+    old_user = User.find(id)
     if !old_user.authenticate(old_password)
       errors.add(:old_password, I18n.t(:incorrect_old_password))
     end

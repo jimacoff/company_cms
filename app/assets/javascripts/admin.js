@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -14,7 +15,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require jasny-bootstrap/js/jasny-bootstrap
+//= require magnific-popup
 //= require nprogress
 //= require nprogress-turbolinks
-//= require parsley
-//= require main
+//= require dropzone
+//= require summernote/dist/summernote
+//= require admin

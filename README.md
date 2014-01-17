@@ -67,7 +67,7 @@ Documentation for Company Website
 			
 ## Project Structure
 * __/app__ - Main project folder for holding the app's main logic
-	* __assets__ - All css, js, static images go here, rails will monitor all files in this folders and automatic serve
+	* __assets__ - All css, js, static images go here, rails will monitor all files in this folders and automatic serve them under global namespace __assets__
 	* __controllers__ - Controllers for the app, all logic to handle request from client go here
 		* __front__ - Controllers for the front part 
 		* __admin__ - Controllers for the admin part

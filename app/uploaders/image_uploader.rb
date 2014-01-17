@@ -83,7 +83,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Return prefix based on rails environment
   def env_prefix
-    Rails.env.test? ?  "#{Rails.root}/spec/support/" : ""
+    Rails.env.test? ?  "#{Rails.root}/spec/support/" : ''
   end
 
   # Function to check if uploaded with no model or not
