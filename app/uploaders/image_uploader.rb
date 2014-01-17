@@ -23,7 +23,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
-  # Config cache diar
+  # Config cache dir
   def cache_dir
     "#{env_prefix}uploads/tmp"
   end
@@ -37,14 +37,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  # process :resize_to_limit => [800, nil]
+  process :resize_to_fit => [800, nil], :if => :no_model?
   #
   # def scale(width, height)
   #   # do something
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
+  version :thumb, :if => :have_model? do
     process :resize_to_fill => [280, 280]
   end
 
@@ -84,5 +84,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Return prefix based on rails environment
   def env_prefix
     Rails.env.test? ?  "#{Rails.root}/spec/support/" : ""
+  end
+
+  # Function to check if uploaded with no model or not
+  def no_model?(picture)
+    model.nil?
+  end
+
+  # Function to check if have model or not
+  def have_model?(picture)
+    !model.nil?
   end
 end
