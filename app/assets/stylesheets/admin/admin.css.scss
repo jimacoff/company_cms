@@ -105,12 +105,6 @@ body.admin {
   }
 }
 
-.work-list table .image img {
-  width: 48%;
-  margin: 1%;
-  float: left;
-}
-
 /* Add new & edit service form */
 /* Add new & edit member form */
 /* Add new & edit work form */
@@ -123,7 +117,7 @@ body.admin {
   .form-group {
     .fileinput {
       .thumbnail {
-        width: 400px;
+        width: auto;
       }
     }
   }

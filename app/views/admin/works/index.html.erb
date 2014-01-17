@@ -13,14 +13,11 @@
       <% @works.each do |work| %>
       <tr>
         <td class="image col-md-3">
-          <% front_images = work.images[0..3] %>
-          <% front_images.each do |image| %>
-            <img src="<%= image.file_url(:thumb) %>" class="img-rounded" />
-          <% end %>
+          <img src="<%= work.cover_photo_url(:thumb) %>" class="img-rounded" />
         </td>
         <td class="cold-md-9">
           <h4><%= work.name %></h4>
-          <p><%= work.client %></p>
+          <p><%= work.client_name %></p>
           <%= link_to work_path(work) do %>
             <i class="fa fa-info-circle"></i> <%= t('more_info') %>
           <% end %>

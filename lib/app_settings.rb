@@ -1,9 +1,7 @@
 # AppSettings
 # ========================
 # Handles getting and setting our main application wide config hash.
-
 module AppSettings
-
   # Returns our config hash, or if empty, returns an empty hash
   def config
     @config ||= {}
@@ -17,5 +15,4 @@ module AppSettings
   # Awesome. Allows us to use instance methods on a Module.
   #     eg. ApplicationSettings.config
   module_function :config=, :config
-
 end

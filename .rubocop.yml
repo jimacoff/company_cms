@@ -10,3 +10,12 @@ AllCops:
     - db/migrate/*
     - lib/file_size_validator.rb
     - config/*
+
+LineLength:
+  Max: 100
+
+MethodLength:
+  Max: 17
+
+CyclomaticComplexity:
+  Max: 8

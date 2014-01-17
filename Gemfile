@@ -48,13 +48,16 @@ gem 'faker', '~> 1.2.0'
 gem 'friendly_id', '~> 5.0.2'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'unicorn'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
+group :production do
+  gem 'unicorn'
+  gem 'newrelic_rpm'
+end
 
 group :development, :test do
   gem 'thin'

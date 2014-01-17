@@ -21,7 +21,7 @@
 
       <div class="fileinput <%= @service.image? ? 'fileinput-exists' : 'fileinput-new' %>" data-provides="fileinput">
         <div class="fileinput-new thumbnail">
-          <%= image_tag asset_path('placeholder.jpg') %>
+          <%= image_tag 'http://placehold.it/250x250&text=No+Image' %>
         </div>
 
         <div class="fileinput-preview fileinput-exists thumbnail">

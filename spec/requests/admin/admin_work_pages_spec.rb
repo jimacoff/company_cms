@@ -50,7 +50,8 @@ describe "Admin::WorkPages" do
       describe 'with valid information' do
         before do
           fill_in "Name", with: "Super Dragon Project"
-          fill_in "Client", with: "Superman"
+          attach_file "work_cover_photo", "#{Rails.root}/spec/fixtures/files/placeholder.jpg"
+          fill_in "work_client_name", with: "Superman"
           fill_in "Story", with: "Aloha cana banh da"
           fill_in "Techs", with: "Mind manipulation"
         end
@@ -73,7 +74,7 @@ describe "Admin::WorkPages" do
 
       it { should have_title(dashboard_title(work.name)) }
       it { should have_content(work.name) }
-      it { should have_content(work.client) }
+      it { should have_content(work.client_name) }
       it { should have_content(work.techs) }
       it { should have_content(work.story) }
       it { should have_link('Delete This Work', href: work_path(work)) }

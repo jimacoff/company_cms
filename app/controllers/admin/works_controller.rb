@@ -41,6 +41,7 @@ class Admin::WorksController < Admin::BaseController
   # Handle update work
   def update
     @work = Work.find(params[:id])
+    @old_image_url = @work.cover_photo_url
     if @work.update(work_params)
       flash[:success] = t('update_work_success')
       redirect_to work_url(@work)
@@ -52,6 +53,7 @@ class Admin::WorksController < Admin::BaseController
   private
 
   def work_params
-    params.require(:work).permit(:name, :client, :story, :techs)
+    params.require(:work).permit(:name, :cover_photo, :story, :techs,
+                                 :client_name, :client_info, :client_quote)
   end
 end

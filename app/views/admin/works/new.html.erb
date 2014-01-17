@@ -16,11 +16,33 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :client %>
-      <%= f.text_field :client, class: "form-control", placeholder: t('client'), required: "", autofocus: "" %>
-      <%= render 'admin/shared/error_message', err_arr: error_mes[:client] %>
-    </div>
+      <%= f.label :cover_photo, t('cover_photo') %>
+      <br>
 
+      <div class="fileinput <%= @work.cover_photo? ? 'fileinput-exists' : 'fileinput-new' %>" data-provides="fileinput">
+        <div class="fileinput-new thumbnail">
+          <%= image_tag 'http://placehold.it/350x250&text=No+Image' %>
+        </div>
+
+        <div class="fileinput-preview fileinput-exists thumbnail">
+          <% if @work.cover_photo? %>
+            <%= image_tag(@work.cover_photo_url) %>
+          <% end %>
+        </div>
+
+        <div>
+          <span class="btn btn-default btn-file">
+            <span class="fileinput-new"><%= t('select_file') %></span>
+            <span class="fileinput-exists"><%= t('change') %></span>
+            <%= f.file_field :cover_photo %>
+            <%= f.hidden_field :cover_photo_cache %>
+          </span>
+
+        </div>
+      </div>
+
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:cover_photo] %>
+    </div>
 
     <div class="form-group ">
       <%= f.label :story %>
@@ -32,6 +54,24 @@
       <%= f.label :techs %>
       <%= f.text_field :techs, class: "form-control", placeholder: t('tech_used'), required: "", autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:techs] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :client_name %>
+      <%= f.text_field :client_name, class: "form-control", placeholder: t('client_name'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:client_name] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :client_info %>
+      <%= f.text_field :client_info, class: "form-control", placeholder: t('client_info'), autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:client_info] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :client_quote %>
+      <%= f.text_area :client_quote, class: "form-control", placeholder: t('client_quote'), autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:client_quote] %>
     </div>
 
     <%= f.submit 'Submit', class: 'btn btn-lg btn-primary' %>
