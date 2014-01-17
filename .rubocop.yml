@@ -7,3 +7,6 @@ AllCops:
     - spec/*
     - bin/*
     - db/schema.rb
+    - db/migrate/*
+    - lib/file_size_validator.rb
+    - config/*
