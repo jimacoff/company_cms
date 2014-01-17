@@ -49,8 +49,9 @@ Website::Application.routes.draw do
     # Root path for locale include path
     get '/:locale' => 'pages#home'
 
-    get 'work' => 'pages#work'
-    get 'blog' => 'pages#blog'
+    get 'work'    => 'pages#work'
+    get 'about'   => 'pages#about'
+    get 'blog'    => 'pages#blog'
     get 'contact' => 'pages#contact'
 
   end
