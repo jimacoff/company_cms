@@ -1,0 +1,17 @@
+@import "colors";
+
+// Global Nav
+.navbar-inverse {
+	@extend .bg-risk;
+		.navbar-nav {
+			li {
+				a {
+					@extend .antiq;
+					font-weight: 600;
+					&:hover {
+						@extend .carot;
+					}
+				}		
+			}
+		}
+}
