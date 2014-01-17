@@ -27,3 +27,8 @@ doc/
 
 # Upload image folder
 public/uploads
+
+
+# Sublime Project Files
+pnochio.sublime-project
+pnochio.sublime-workspace
