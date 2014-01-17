@@ -40,13 +40,19 @@ Website::Application.routes.draw do
     # Font page
     scope module: 'front', as: 'front' do
       resources :messages
+
     end
 
 
     # Root path
-    root 'static_pages#home'
+    root 'pages#home'
     # Root path for locale include path
-    get '/:locale' => 'static_pages#home'
+    get '/:locale' => 'pages#home'
+
+    get 'work' => 'pages#work'
+    get 'blog' => 'pages#blog'
+    get 'contact' => 'pages#contact'
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
