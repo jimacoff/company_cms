@@ -23,11 +23,11 @@ Website::Application.routes.draw do
 
       # Work path
       resources :works do
-        resources :images, only: [:new, :create]
+        resources :tasks, only: [:new, :create]
       end
 
       # Images path
-      resources :images, only: [:destroy]
+      resources :tasks, only: [:destroy]
 
       # Message path
       resources :messages, only: [:index, :destroy]

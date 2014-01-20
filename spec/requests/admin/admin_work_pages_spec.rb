@@ -60,15 +60,41 @@ describe "Admin::WorkPages" do
           expect { click_button submit }.to change(Work, :count).by(1)
         end
       end
+
+      describe 'with invalid link' do
+        before do
+          fill_in "Name", with: "Super Dragon Project"
+          attach_file "work_cover_photo", "#{Rails.root}/spec/fixtures/files/placeholder.jpg"
+          fill_in "work_client_name", with: "Superman"
+          fill_in "Story", with: "Aloha cana banh da"
+          fill_in "Techs", with: "Mind manipulation"
+          fill_in "Link", with: 'adsfcdef'
+        end
+
+        it "should create a new work" do
+          expect { click_button submit }.not_to change(Work, :count)
+        end
+      end
+
+      describe 'with valid link' do
+        before do
+          fill_in "Name", with: "Super Dragon Project"
+          attach_file "work_cover_photo", "#{Rails.root}/spec/fixtures/files/placeholder.jpg"
+          fill_in "work_client_name", with: "Superman"
+          fill_in "Story", with: "Aloha cana banh da"
+          fill_in "Techs", with: "Mind manipulation"
+          fill_in "Link", with: 'adsfcdef'
+        end
+
+        it "should create a new work" do
+          expect { click_button submit }.not_to change(Work, :count)
+        end
+      end
     end
 
     describe 'show work' do
       let(:work) { FactoryGirl.create(:work) }
       before do
-        10.times do
-          work.images.create(file: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/files/placeholder.jpg')) )
-        end
-
         visit work_path(work)
       end
 
@@ -77,13 +103,11 @@ describe "Admin::WorkPages" do
       it { should have_content(work.client_name) }
       it { should have_content(work.techs) }
       it { should have_content(work.story) }
+      it { should have_content(work.link) }
       it { should have_link('Delete This Work', href: work_path(work)) }
       it { should have_link('Edit', href: edit_work_path(work)) }
-      it { should have_link('Add Images', href: new_work_image_path(work)) }
+      it { should have_link('Add Task', href: new_work_task_path(work)) }
 
-      describe "show images of the work" do
-        it { all('img').count.should eql(10) }
-      end
 
       describe "when click delete link" do
         specify do
@@ -118,13 +142,6 @@ describe "Admin::WorkPages" do
         end
       end
 
-
-      describe "add images for work page" do
-        before { click_link 'Add Images' }
-
-        it { should have_title(dashboard_title('Add Images')) }
-        it { should have_selector('h1', text: "Add Images for #{work.name}") }
-      end
     end
   end
 end

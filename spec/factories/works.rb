@@ -6,6 +6,7 @@ FactoryGirl.define do
     sequence(:client_name) { |n| "Apple #{n}" }
     sequence(:story) { |n| "10 days of sleepness #{n}" }
     sequence(:techs) { |n| "Rails, NodeJS, AngularJS #{n}" }
+    sequence(:link) { |n| "http://myproduct#{n}.com" }
     cover_photo { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/files/placeholder.jpg')) }
   end
 end

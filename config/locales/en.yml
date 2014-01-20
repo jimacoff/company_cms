@@ -44,6 +44,8 @@ en:
   client_quote: "Client Quote"
   story: "Story"
   name: "Name"
+  link: "Link"
+  add_task: 'Add Task'
   tech_used: "Technology Used"
   image_warning: "Image must have extension .jpg, .jpeg, .gif, .png and < 2 MB in size"
   message_list: "Message List"

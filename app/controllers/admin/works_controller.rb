@@ -2,7 +2,7 @@
 class Admin::WorksController < Admin::BaseController
   # List all works
   def index
-    @works = Work.includes(:images).paginate(page: params[:page])
+    @works = Work.paginate(page: params[:page])
   end
 
   # Render new work page
@@ -53,7 +53,7 @@ class Admin::WorksController < Admin::BaseController
   private
 
   def work_params
-    params.require(:work).permit(:name, :cover_photo, :story, :techs,
+    params.require(:work).permit(:name, :cover_photo, :story, :link, :techs,
                                  :client_name, :client_info, :client_quote)
   end
 end

@@ -17,10 +17,17 @@
       <p><%= @work.name %></p>
     </div>
 
-    <div class="work-row">
-      <h4><%= t('client') %></h4>
-      <p><%= @work.client_name %></p>
+    <div class="work-row cover-photo">
+      <h4><%= t('cover_photo')%></h4>
+      <%= image_tag @work.cover_photo_url, class: 'img-rounded' %>
     </div>
+
+    <% if @work.link %>
+      <div class="work-row">
+        <h4><%= t('link') %></h4>
+        <p><%= @work.link %></p>
+      </div>
+    <% end %>
 
     <div class="work-row">
       <h4><%= t('story') %></h4>
@@ -33,30 +40,35 @@
     </div>
 
     <div class="work-row">
+      <h4><%= t('client') %></h4>
+      <p><%= @work.client_name %></p>
+    </div>
+
+    <% if @work.client_info %>
+      <div class="work-row">
+        <h4><%= t('client_info') %></h4>
+        <p><%= @work.client_info %></p>
+      </div>
+    <% end %>
+
+    <% if @work.client_quote %>
+      <div class="work-row">
+        <h4><%= t('client_quote') %></h4>
+        <p><%= @work.client_quote %></p>
+      </div>
+    <% end %>
+
+    <div class="work-row">
       <%= link_to t('edit'), edit_work_path(@work), class: 'btn btn-md btn-primary' %>
     </div>
   </div>
 
-  <div class="images-list col-md-6">
-    <h2><%= t('images')%></h2>
-
+  <div class="tasks-list col-md-6">
+    <h2><%= t('tasks')%></h2>
     <div class="images-option">
-      <%= link_to t('add_images'), new_work_image_path(@work), class: 'btn btn-md btn-primary' %>
+      <%= link_to t('add_task'), new_work_task_path(@work), class: 'btn btn-md btn-primary' %>
     </div>
 
-    <% if flash[:delete_image_success] %>
-      <div class="alert alert-success fade in">
-        <%= flash[:delete_image_success] %>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      </div>
-    <% end %>
 
-    <div class="popup-gallery">
-      <% @work.images.each do |image| %>
-        <a href="<%= image.file_url %>" data-url="<%= image_path(image) %>" class="work-image">
-          <%= image_tag image.file_url(:thumb) %>
-        </a>
-      <% end %>
-    </div>
   </div>
 </div>

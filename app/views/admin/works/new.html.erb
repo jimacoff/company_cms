@@ -45,6 +45,12 @@
     </div>
 
     <div class="form-group ">
+      <%= f.label :link %>
+      <%= f.text_field :link, class: "form-control", placeholder: t('link'), autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:link] %>
+    </div>
+
+    <div class="form-group ">
       <%= f.label :story %>
       <%= f.text_area :story, class: "form-control", placeholder: t('story'), required: "", autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:story] %>

@@ -12,17 +12,18 @@ describe Work do
   it { should respond_to(:client_quote) }
   it { should respond_to(:story) }
   it { should respond_to(:techs) }
-  it { should respond_to(:images) }
+  it { should respond_to(:link) }
+  it { should respond_to(:tasks) }
 
   it { should be_valid }
 
   describe 'when title is not present' do
-    before { @work.client_name = " " }
+    before { @work.client_name = ' ' }
     it { should_not be_valid }
   end
 
   describe 'when name is not present' do
-    before { @work.name = " " }
+    before { @work.name = ' ' }
     it { should_not be_valid }
   end
 
@@ -34,5 +35,14 @@ describe Work do
   describe 'when image is not present' do
     before { @work.techs = ' ' }
     it { should_not be_valid }
+  end
+
+  describe 'when link is not valid' do
+    before { @work.link = 'http://abc' }
+    it { should_not be_valid }
+  end
+
+  describe 'with a valid link' do
+    before { @work.link = 'http://abc.com' }
   end
 end

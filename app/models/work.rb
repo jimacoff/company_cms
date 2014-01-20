@@ -11,13 +11,15 @@ class Work < ActiveRecord::Base
   validates :client_name, presence: true
   validates :story, presence: true
   validates :techs, presence: true
+  VALID_URL = /(^$)|(\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\z)/ix
+  validates :link, format: { with: VALID_URL }
   validates :cover_photo, presence: true,
     file_size: { maximum: AppSettings.config['max_filesize'].megabytes.to_i }
 
   validates_integrity_of :cover_photo
   validates_processing_of :cover_photo
 
-  has_many :images, as: :imageable, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
   private
 
