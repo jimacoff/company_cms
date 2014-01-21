@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Image do
-  let(:work) { FactoryGirl.create(:work) }
+  let(:task) { FactoryGirl.create(:task) }
   before do
-    @image = work.images.build(
+    @image = task.images.build(
       file: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/files/placeholder.jpg'))
     )
   end

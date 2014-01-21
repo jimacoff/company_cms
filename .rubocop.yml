@@ -15,7 +15,7 @@ LineLength:
   Max: 100
 
 MethodLength:
-  Max: 17
+  Max: 20
 
 CyclomaticComplexity:
   Max: 8

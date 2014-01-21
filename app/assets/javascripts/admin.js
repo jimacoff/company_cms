@@ -21,4 +21,6 @@
 //= require nprogress-turbolinks
 //= require dropzone
 //= require summernote/dist/summernote
+//= require ladda/dist/spin.min
+//= require ladda/dist/ladda.min
 //= require dashboard

@@ -95,6 +95,10 @@ describe "Admin::WorkPages" do
     describe 'show work' do
       let(:work) { FactoryGirl.create(:work) }
       before do
+        5.times do |i|
+          work.tasks.create!(title: "ABC 123 #{i}", description: "ALOHA #{i}")
+        end
+
         visit work_path(work)
       end
 
@@ -108,8 +112,28 @@ describe "Admin::WorkPages" do
       it { should have_link('Edit', href: edit_work_path(work)) }
       it { should have_link('Add Task', href: new_work_task_path(work)) }
 
+      describe 'list of tasks' do
+        it { should have_selector('h2', text: 'Tasks') }
 
-      describe "when click delete link" do
+        describe 'list all of the work task' do
+
+          it 'should have list of tasks' do
+            work.tasks.each do |task|
+              expect(page).to have_content task.title
+            end
+          end
+        end
+
+        describe 'delete a task' do
+          specify do
+            expect do
+              page.first('.task-delete').click()
+            end.to change(work.tasks, :count).by(-1)
+          end
+        end
+      end
+
+      describe 'when click delete link' do
         specify do
           expect{ click_link 'Delete This Work' }.to change(Work, :count).by(-1)
         end

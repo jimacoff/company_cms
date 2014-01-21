@@ -1,0 +1,36 @@
+<% provide :title, dashboard_title(t('add_new_task')) %>
+<div class="row">
+  <h1><%= t('add_new_task') %> for <%=link_to @work.name, @work %></h1>
+</div>
+
+<div class="row">
+
+  <%= form_for @task, url: work_tasks_path(@work), method: :post, html: { role: 'form', multipart: true, class: 'new_task' }  do |f| %>
+
+    <% error_mes = @task.errors.messages %>
+
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control", placeholder: t('title'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:title] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control", placeholder: t('description'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:description] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :images %>
+      <div class="dropzone-clickable">
+        <div class="dropzone-previews"></div>
+        <p class="notify-text"><%= t('drag_drop_or_browse_image') %></p>
+      </div>
+    </div>
+
+    <%= button_tag type: 'submit', class: 'btn btn-lg btn-primary ladda-button', 'data-style' => 'expand-right' do %>
+      <%= t('submit') %>
+    <% end %>
+  <% end %>
+</div>

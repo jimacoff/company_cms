@@ -26,11 +26,15 @@ Website::Application.routes.draw do
         resources :tasks, only: [:new, :create]
       end
 
+      # Tasks path
+      resources :tasks, only: [:show, :destroy, :edit]
+
       # Images path
-      resources :tasks, only: [:destroy]
+      resources :images, only: [:destroy]
 
       # Message path
       resources :messages, only: [:index, :destroy]
+
 
       # Post path
       resources :posts

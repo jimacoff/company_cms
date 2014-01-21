@@ -23,49 +23,51 @@ $(document).on 'ready page:load page:restore', ->
 
   # Dropzone configuration for add iamges
   Dropzone.autoDiscover = false
-  $('#work-images-dropzone').dropzone
-    maxFilesize: 10
+  # dropzone for new task
+  $('#new_task').dropzone
+    maxFilesize: 2
     addRemoveLinks: true
     acceptedFiles: ".jpg, .jpeg, .png, .gif"
-    uploadMultiple: false
+    uploadMultiple: true,
     autoProcessQueue: false,
+    parallelUploads: 100,
+    maxFiles: 100,
+    previewsContainer: ".dropzone-previews",
+    clickable: '.dropzone-clickable'
     init: () ->
-      $submitButton = $(".add-images-zone #submit-all")
       myDropzone = this
-      hasError = false
+      # create loading button indicator
+      laddaButt = Ladda.create(this.element.querySelector('button[type=submit]'))
+      console.log(myDropzone)
 
-      # Add event handler for close the alert
-      $('.alert .continue-images').on 'click', (e) ->
-        e.preventDefault()
-        $('.alert').fadeOut()
-        $submitButton.attr('disabled', false)
-        $submitButton.fadeIn()
-
-      # When submit click, begin upload images process
-      $submitButton.on "click", ->
-        # start process image queue
-        myDropzone.processQueue()
-        $(this).attr('disabled', 'disabled')
-
-      this.on "addedfile", ->
-        $submitButton.attr('disabled', false)
-
-      this.on "error", (e, msg, xhr)->
-        $submitButton.attr('disabled', 'disabled')
-        hasError = true
-
-      # On complete all upload, display messages
-      this.on "complete", ->
-        if this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0
-          $submitButton.hide()
-          if hasError
-            $('.add-images-zone .alert-danger').fadeIn()
-          else
-            $('.add-images-zone .alert-success').fadeIn()
-        else
-          # Continue to process the image queue
+      $(this.element).submit (e) ->
+        laddaButt.start()
+        # Only submit by dropzone if have no files upoaded
+        if myDropzone.files.length != 0
+          e.preventDefault()
+          e.stopPropagation()
+          # Disable all element in the form
+          disableForm(myDropzone.element, true)
+          # Start upload the data
           myDropzone.processQueue()
 
+      this.on 'sendingmultiple', ->
+        console.log('sending images')
+        myDropzone.disable()
+
+      this.on 'successmultiple', (files, response) ->
+        # Redirect to the work that the newly created task belongs to
+        window.location = response.redirect_url
+
+      this.on 'errormultiple', (files, response) ->
+        # Enable all element in the form
+        disableForm(myDropzone.element, false)
+        myDropzone.enable()
+        laddaButt.stop()
+
+  # Function to disable and enable form field
+  disableForm = (el, state) ->
+    $(el).find('input,textarea,button').attr('disabled', state)
 
 
   # Function to upload file for post content

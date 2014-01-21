@@ -109,7 +109,7 @@ body.admin {
 /* Add new & edit member form */
 /* Add new & edit work form */
 /* Add new & edit post form */
-.new_service, .edit_service, .new_team_member, .edit_team_member, .new_work, .edit_work, .new_post, .edit_post {
+.new_service, .edit_service, .new_team_member, .edit_team_member, .new_work, .edit_work, .new_post, .edit_post, .new_task, .edit_task {
   textarea {
     min-height: 150px;
   }
@@ -142,6 +142,21 @@ body.admin {
       max-width: 500px;
     }
   }
+
+  .dropzone-clickable {
+    height: 100%;
+    min-height: 150px;
+    background-color: #EDEDED;
+    border-radius: 4px;
+    border: 1px #bfbfbf dotted;
+    cursor: pointer;
+
+    .notify-text {
+      text-align: center;
+      padding-top: 55px;
+      font-style: italic;
+    }
+  }
 }
 
 /* Work detail page */
@@ -161,7 +176,18 @@ body.admin {
 }
 
 .tasks-list {
+  .table-responsive {
+    margin-top: 20px;
 
+    .options {
+      text-align: center;
+
+      a {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
 }
 
 /* Add Images for work page */
