@@ -7,6 +7,13 @@ class Admin::ServicesController < Admin::BaseController
   # Index view
   def index
     @services = Service.paginate(page: params[:page])
+    message = Message.create!(email: Faker::Internet.email,
+                             name: Faker::Name.name,
+                             subject: Faker::Company.catch_phrase,
+                             message: Faker::Lorem.paragraph
+                            )
+
+    MessageMailer.contact_email(message).deliver
   end
 
   # Delete service
