@@ -25,13 +25,12 @@ module Website
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     I18n.enforce_available_locales = true
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
     # will paginate setting
     WillPaginate.per_page = 5
 
     # add asset to compile
-    config.assets.precompile += %w(admin.js admin.css)
+    config.assets.precompile += %w(admin.js admin.css *.png *.jpg *.jpeg *.gif)
   end
 end
 
