@@ -78,6 +78,7 @@ GEM
     coffee-script-source (1.6.3)
     columnize (0.3.6)
     daemons (1.1.9)
+    dalli (2.7.0)
     debug_inspector (0.0.2)
     debugger (1.6.5)
       columnize (>= 0.3.1)
@@ -170,6 +171,8 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.2)
@@ -296,6 +299,7 @@ DEPENDENCIES
   carrierwave
   childprocess (~> 0.3.9)
   coffee-rails (~> 4.0.0)
+  dalli
   debugger
   dropzonejs-rails
   factory_girl_rails (~> 4.3.0)
@@ -307,6 +311,7 @@ DEPENDENCIES
   hirb
   jbuilder (~> 1.2)
   jquery-rails
+  kgio
   mini_magick
   newrelic_rpm
   nprogress-rails
@@ -315,6 +320,7 @@ DEPENDENCIES
   pry-debugger
   pry-rails
   pry-stack_explorer
+  rack-cache
   rails (= 4.0.2)
   rspec-rails (~> 2.14.0)
   sass-rails (~> 4.0.0)

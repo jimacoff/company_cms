@@ -56,6 +56,9 @@ end
 group :production do
   gem 'unicorn'
   gem 'newrelic_rpm'
+  gem 'rack-cache'
+  gem 'dalli'
+  gem 'kgio'
 end
 
 group :development, :test do
