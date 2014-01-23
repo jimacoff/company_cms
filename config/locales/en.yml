@@ -47,6 +47,7 @@ en:
   link: "Link"
   add_task: 'Add Task'
   edit_task: 'Edit Task'
+  add_more_images: 'Add More Images'
   tech_used: "Technology Used"
   image_warning: "Image must have extension .jpg, .jpeg, .gif, .png and < 2 MB in size"
   message_list: "Message List"
