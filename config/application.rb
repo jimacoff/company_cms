@@ -31,7 +31,7 @@ module Website
     WillPaginate.per_page = 5
 
     # add asset to compile
-    config.assets.precompile += ['admin.js', 'admin.css']
+    config.assets.precompile += %w(admin.js admin.css)
   end
 end
 
