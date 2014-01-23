@@ -29,6 +29,9 @@ module Website
 
     # will paginate setting
     WillPaginate.per_page = 5
+
+    # add asset to compile
+    config.assets.precompile += ['admin.js', 'admin.css']
   end
 end
 
