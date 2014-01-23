@@ -18,11 +18,7 @@ Website::Application.configure do
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   # Add dailli caching to use with rack cache
-  client = Dalli::Client.new('localhost:11211', :value_max_bytes => 10485760)
-  config.action_dispatch.rack_cache = {
-    :metastore => client,
-    :entitystore => client
-  }
+  config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
@@ -57,7 +53,8 @@ Website::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production.
-  config.cache_store = :dalli_store
+  config.cache_store = :dalli_store, 'localhost:11211',
+    { :namespace => :thecompany, :expires_in => 1.day, :compress => true  }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
