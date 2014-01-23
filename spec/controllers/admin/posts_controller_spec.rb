@@ -12,7 +12,7 @@ describe Admin::PostsController do
 
       describe 'upload a valid image' do
         before do
-          request.accept = "application/json"
+          request.accept = 'application/json'
           post :upload_image, file: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/files/placeholder.jpg'), 'image/jpeg')
           @response_body = JSON.parse(response.body)
         end
