@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require jasny-bootstrap/js/jasny-bootstrap
-//= require magnific-popup
+//= require colorbox/jquery.colorbox
 //= require nprogress
 //= require nprogress-turbolinks
 //= require dropzone

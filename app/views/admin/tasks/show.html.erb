@@ -1,0 +1,28 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3><%= @task.title %></h3>
+    </div>
+    <div class="modal-body">
+      <div>
+        <h4><%= t('description') %></h4>
+        <%= @task.description %>
+      </div>
+
+      <div class="task-images">
+        <h4><%= t('task_images') %></h4>
+        <div class="image-gallery">
+          <% @task.images.each do |image| %>
+            <a href="<%= image.file_url %>" class="task-image">
+              <%= image_tag image.file_url(:thumb) %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn btn-primary">Close</button>
+    </div>
+  </div>
+</div>

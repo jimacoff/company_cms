@@ -25,7 +25,14 @@ class Admin::ImagesController < Admin::BaseController
     @image = Image.find(params[:id])
     @work = @image.imageable
     @image.destroy
-    flash[:delete_image_success] = t('delete_image_success')
-    redirect_to work_path(@work)
+
+    respond_to do |format|
+      format.html do
+        flash[:delete_image_success] = t('delete_image_success')
+        redirect_to work_path(@work)
+      end
+
+      format.json { render json: { status: 1, mesage: t('delete_image_success') } }
+    end
   end
 end

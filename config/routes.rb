@@ -27,7 +27,7 @@ Website::Application.routes.draw do
       end
 
       # Tasks path
-      resources :tasks, only: [:show, :destroy, :edit]
+      resources :tasks, only: [:show, :destroy, :edit, :update]
 
       # Images path
       resources :images, only: [:destroy]

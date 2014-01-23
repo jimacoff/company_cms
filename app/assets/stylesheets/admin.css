@@ -12,8 +12,8 @@
  *= require jasny-bootstrap/css/jasny-bootstrap
  *= require nprogress
  *= require nprogress-bootstrap
- *= require magnific-popup
  *= require dropzone/dropzone
+ *= require colorbox/example1/colorbox
  *= require summernote/dist/summernote
  *= require ladda/dist/ladda-themeless.min
  *= require_tree ./admin

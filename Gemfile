@@ -37,7 +37,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'font-awesome-sass'
 gem 'nprogress-rails'
-gem 'magnific-popup-rails'
 gem 'dropzonejs-rails'
 gem 'parsley-rails'
 
@@ -80,6 +79,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet'
   gem 'capistrano'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rbenv', '~> 2.0'

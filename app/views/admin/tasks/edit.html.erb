@@ -1,0 +1,60 @@
+<% provide :title, dashboard_title(t('edit_task')) %>
+<div class="row">
+  <h1><%= t('edit_task') %></h1>
+</div>
+
+<div class="row">
+
+  <%= render 'admin/shared/success_alert' %>
+
+  <% unless @status.nil? %>
+    <div class="alert alert-success fade in">
+      <%= @status %>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    </div>
+  <% end %>
+
+  <%= form_for @task, url: task_path(@task), method: :patch, html: { role: 'form', multipart: true }  do |f| %>
+
+    <% error_mes = @task.errors.messages %>
+
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control", placeholder: t('title'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:title] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control", placeholder: t('description'), required: "", autofocus: "" %>
+      <%= render 'admin/shared/error_message', err_arr: error_mes[:description] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :images %>
+      <p class="help-block"><%= t('click_delete') %></p>
+      <div class="image-gallery">
+        <% @task.images.each do |image| %>
+          <div id="container_<%= image.id %>" class="image-container">
+            <a href="<%= image.file_url %>" data-url="<%= image_path(image) %>" class="task-image">
+              <%= image_tag image.file_url(:thumb) %>
+            </a>
+            <a href="<%= image_path(image) %>" data-id="<%= image.id %>" class="image-delete"><%= t('delete') %></a>
+          </div>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+
+      <br />
+      <%= f.label t('add_more_images') %>
+      <div class="dropzone-clickable">
+        <div class="dropzone-previews"></div>
+        <p class="notify-text"><%= t('drag_drop_or_browse_image') %></p>
+      </div>
+    </div>
+
+    <%= button_tag type: 'submit', class: 'btn btn-lg btn-primary ladda-button', 'data-style' => 'expand-right' do %>
+      <%= t('submit') %>
+    <% end %>
+  <% end %>
+</div>

@@ -175,7 +175,8 @@ body.admin {
   }
 }
 
-.tasks-list {
+/* Task list */
+.task-list {
   .table-responsive {
     margin-top: 20px;
 
@@ -189,6 +190,54 @@ body.admin {
     }
   }
 }
+
+.image-grid {
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in;
+  border-bottom: 0;
+  height: 80px;
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 80px;
+}
+/* Task info modal */
+.image-gallery {
+  img {
+    @extend .image-grid;
+  }
+
+  .image-container {
+    float: left;
+    position: relative;
+    margin: 0 5px 5px 0;
+
+    img {
+      margin: 0
+    }
+
+
+    .image-delete {
+      text-align: center;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding-bottom: 2px;
+      display: none;
+    }
+
+    &:hover {
+      .image-delete {
+        display: block;
+      }
+    }
+  }
+
+}
+
 
 /* Add Images for work page */
 .add-images-zone {
@@ -211,7 +260,7 @@ body.admin {
 }
 
 /* Post info modal */
-#post-info-modal {
+#post-info-modal, #task-info-modal {
   .modal-dialog {
     .modal-body {
       overflow-x: scroll;
@@ -242,4 +291,9 @@ body.admin {
       width: 40%;
     }
   }
+}
+
+.image-delete {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
