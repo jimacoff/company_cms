@@ -10,24 +10,24 @@
   <% error_mes = @member.errors.messages %>
 
     <div class="form-group">
-      <%= f.label :title, t('member_title') %>
+      <%= f.label :title, t('member_title') %> *
       <%= f.text_field :title, class: "form-control", placeholder: t('member_title'), required: "", autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:title] %>
     </div>
 
     <div class="form-group">
-      <%= f.label :name, t('member_name') %>
+      <%= f.label :name, t('member_name') %> *
       <%= f.text_field :name, class: "form-control", placeholder: t('member_name'), required: "", autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:name] %>
     </div>
 
     <div class="form-group">
-      <%= f.label :avatar, t('avatar') %>
+      <%= f.label :avatar, t('avatar') %> *
       <br>
 
       <div class="fileinput <%= @member.avatar? ? 'fileinput-exists' : 'fileinput-new' %>" data-provides="fileinput">
         <div class="fileinput-new thumbnail">
-          <%= image_tag asset_path('placeholder.jpg') %>
+          <%= image_tag 'http://placehold.it/350x250&text=No+Image' %>
         </div>
 
         <div class="fileinput-preview fileinput-exists thumbnail">
@@ -51,7 +51,7 @@
     </div>
 
     <div class="form-group ">
-      <%= f.label :description %>
+      <%= f.label :description %> *
       <%= f.text_area :description, class: "form-control", placeholder: t('description'), required: "", autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:description] %>
     </div>
