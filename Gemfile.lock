@@ -105,6 +105,8 @@ GEM
     formatador (0.2.4)
     friendly_id (5.0.2)
       activerecord (~> 4.0.0)
+    gretel (3.0.5)
+      rails (>= 3.2.0)
     guard (2.2.5)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -306,6 +308,7 @@ DEPENDENCIES
   faker (~> 1.2.0)
   font-awesome-sass
   friendly_id (~> 5.0.2)
+  gretel
   guard-rspec (~> 4.2.0)
   guard-rubocop
   hirb
