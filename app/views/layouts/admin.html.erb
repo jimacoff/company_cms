@@ -14,6 +14,8 @@
     <%= render 'admin/layouts/sidebar' %>
 
     <div class="page-content-wrapper">
+      <%= breadcrumbs style: :bootstrap %>
+
       <div class="page-content inset">
         <%= yield %>
         <%= render 'layouts/debug' %>
