@@ -227,6 +227,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
+    simple-navigation (3.11.0)
+      activesupport (>= 2.3.2)
     sketches (0.1.1)
     slop (3.4.7)
     spring (1.0.0)
@@ -320,6 +322,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver (~> 2.39.0)
+  simple-navigation
   sketches
   spring
   spring-commands-rspec

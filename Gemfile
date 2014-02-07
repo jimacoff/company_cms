@@ -40,6 +40,9 @@ gem 'nprogress-rails'
 gem 'dropzonejs-rails'
 gem 'parsley-rails'
 
+# Navigation & Breadcrumbs
+gem "simple-navigation"
+
 # Others
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap', '~> 1.0.0'
