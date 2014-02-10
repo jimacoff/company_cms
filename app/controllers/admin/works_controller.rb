@@ -18,6 +18,7 @@ class Admin::WorksController < Admin::BaseController
       flash[:success] = t('create_work_success')
       redirect_to work_url(@work)
     else
+      @categories = WorkCategory.all
       render 'new'
     end
   end
@@ -48,6 +49,7 @@ class Admin::WorksController < Admin::BaseController
       flash[:success] = t('update_work_success')
       redirect_to work_url(@work)
     else
+      @categories = WorkCategory.all
       render 'edit'
     end
   end

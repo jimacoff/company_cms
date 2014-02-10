@@ -9,5 +9,7 @@ FactoryGirl.define do
     sequence(:link) { |n| "http://myproduct#{n}.com" }
     cover_photo { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/files/placeholder.jpg')) }
     association :category, factory: :work_category
+    client_info 'Test'
+    client_quote 'Test'
   end
 end

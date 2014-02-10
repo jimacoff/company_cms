@@ -31,7 +31,7 @@ describe "Admin::WorkPages" do
 
   describe "add new work page" do
     before(:all) { 5.times { FactoryGirl.create(:work_category) } }
-    before(:all) { WorkCategory.delete_all }
+    after(:all) { WorkCategory.delete_all }
     before do
       visit works_path
       click_link 'Add New Work'
@@ -40,8 +40,8 @@ describe "Admin::WorkPages" do
     it { should have_title(dashboard_title('Add New Work')) }
     it { should have_selector('h1', text: 'Add New Work') }
 
-    its 'should have categories selection box' do
-      expect(page).to have_selector('option', count: 5)
+    it 'should have categories selection box' do
+      page.all("option").count.should eql(6)
     end
 
     let(:submit) { 'Submit' }
