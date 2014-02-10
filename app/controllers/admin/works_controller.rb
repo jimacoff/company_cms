@@ -8,6 +8,7 @@ class Admin::WorksController < Admin::BaseController
   # Render new work page
   def new
     @work = Work.new
+    @categories = WorkCategory.all
   end
 
   # Handle create new work
@@ -36,6 +37,7 @@ class Admin::WorksController < Admin::BaseController
   # Render edit work's generel info ui
   def edit
     @work = Work.find(params[:id])
+    @categories = WorkCategory.all
   end
 
   # Handle update work
@@ -54,6 +56,6 @@ class Admin::WorksController < Admin::BaseController
 
   def work_params
     params.require(:work).permit(:name, :cover_photo, :story, :link, :techs,
-                                 :client_name, :client_info, :client_quote)
+                                 :client_name, :client_info, :client_quote, :category_id)
   end
 end

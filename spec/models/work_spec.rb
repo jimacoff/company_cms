@@ -14,6 +14,8 @@ describe Work do
   it { should respond_to(:techs) }
   it { should respond_to(:link) }
   it { should respond_to(:tasks) }
+  it { should respond_to(:category_id) }
+  it { should respond_to(:category) }
 
   it { should be_valid }
 
@@ -28,7 +30,7 @@ describe Work do
   end
 
   describe 'when description is not present' do
-    before { @work.story = " " }
+    before { @work.story = ' ' }
     it { should_not be_valid }
   end
 
@@ -44,5 +46,6 @@ describe Work do
 
   describe 'with a valid link' do
     before { @work.link = 'http://abc.com' }
+    it { should be_valid }
   end
 end

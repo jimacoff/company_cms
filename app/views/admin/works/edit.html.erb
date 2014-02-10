@@ -16,6 +16,11 @@
       <%= render 'admin/shared/error_message', err_arr: error_mes[:name] %>
     </div>
 
+    <div class="form-group ">
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, @categories, :id, :name, { prompt: true }, { class: 'form-control' } %>
+    </div>
+
     <div class="form-group">
       <%= f.label :cover_photo, t('cover_photo') %> *
       <br>
@@ -47,7 +52,7 @@
 
     <div class="form-group ">
       <%= f.label :link %>
-      <%= f.text_area :link, class: "form-control", placeholder: t('link'), required: "", autofocus: "" %>
+      <%= f.text_field :link, class: "form-control", placeholder: t('link'), autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:link] %>
     </div>
 
@@ -59,7 +64,7 @@
 
     <div class="form-group ">
       <%= f.label :techs %>
-      <%= f.text_field :techs, class: "form-control", placeholder: t('tech_used'), required: "", autofocus: "" %>
+      <%= f.text_field :techs, class: "form-control", placeholder: t('tech_used'), autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:techs] %>
     </div>
 
