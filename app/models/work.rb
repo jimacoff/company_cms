@@ -20,6 +20,7 @@ class Work < ActiveRecord::Base
   validates_processing_of :cover_photo
 
   has_many :tasks, dependent: :destroy
+  belongs_to :category, class_name: 'WorkCategory', foreign_key: :category_id
 
   private
 

@@ -1,4 +1,5 @@
 <% provide :title, dashboard_title(@work.name) %>
+<% breadcrumb :work, @work %>
 <div class="row">
   <h1>
     <%= t 'work_detail', work: @work.name %>
@@ -17,12 +18,19 @@
       <p><%= @work.name %></p>
     </div>
 
+    <% if @work.category %>
+      <div class="work-row">
+        <h4><%= t('category') %></h4>
+        <p><%= @work.category.name %></p>
+      </div>
+    <% end %>
+
     <div class="work-row cover-photo">
       <h4><%= t('cover_photo')%></h4>
       <%= image_tag @work.cover_photo_url, class: 'img-rounded' %>
     </div>
 
-    <% if @work.link %>
+    <% unless @work.link.empty? %>
       <div class="work-row">
         <h4><%= t('link') %></h4>
         <p><%= @work.link %></p>
@@ -34,24 +42,26 @@
       <p><%= @work.story %></p>
     </div>
 
-    <div class="work-row">
-      <h4><%= t('tech_used') %></h4>
-      <p><%= @work.techs %></p>
-    </div>
+    <% unless @work.techs.empty? %>
+      <div class="work-row">
+        <h4><%= t('tech_used') %></h4>
+        <p><%= @work.techs %></p>
+      </div>
+    <% end %>
 
     <div class="work-row">
       <h4><%= t('client') %></h4>
       <p><%= @work.client_name %></p>
     </div>
 
-    <% if @work.client_info %>
+    <% unless @work.client_info.empty? %>
       <div class="work-row">
         <h4><%= t('client_info') %></h4>
         <p><%= @work.client_info %></p>
       </div>
     <% end %>
 
-    <% if @work.client_quote %>
+    <% unless @work.client_quote.empty? %>
       <div class="work-row">
         <h4><%= t('client_quote') %></h4>
         <p><%= @work.client_quote %></p>

@@ -1,4 +1,5 @@
 <% provide :title, dashboard_title(t('add_new_task')) %>
+<% breadcrumb :new_task, @work %>
 <div class="row">
   <h1><%= t('add_new_task') %> for <%=link_to @work.name, @work %></h1>
 </div>
@@ -10,13 +11,13 @@
     <% error_mes = @task.errors.messages %>
 
     <div class="form-group">
-      <%= f.label :title %>
+      <%= f.label :title %> *
       <%= f.text_field :title, class: "form-control", placeholder: t('title'), required: "", autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:title] %>
     </div>
 
     <div class="form-group">
-      <%= f.label :description %>
+      <%= f.label :description %> *
       <%= f.text_area :description, class: "form-control", placeholder: t('description'), required: "", autofocus: "" %>
       <%= render 'admin/shared/error_message', err_arr: error_mes[:description] %>
     </div>

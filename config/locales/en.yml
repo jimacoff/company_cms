@@ -33,7 +33,7 @@ en:
   member_list: "Team List"
   add_new_work: "Add New Work"
   work_list: "Work List"
-  work_detail: "%{work}'s Details'"
+  work_detail: "%{work}'s Details"
   edit_work: "Edit Work"
   add_images: "Add Images"
   add_images_for: "Add Images for %{work}"

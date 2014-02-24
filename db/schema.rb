@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120091128) do
+ActiveRecord::Schema.define(version: 20140210063819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,15 @@ ActiveRecord::Schema.define(version: 20140120091128) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  create_table "work_categories", force: true do |t|
+    t.string   "name",        null: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "work_categories", ["name"], name: "index_work_categories_on_name", unique: true, using: :btree
+
   create_table "works", force: true do |t|
     t.string   "name",         null: false
     t.string   "client_name",  null: false
@@ -117,6 +126,7 @@ ActiveRecord::Schema.define(version: 20140120091128) do
     t.string   "link"
     t.string   "client_info"
     t.text     "client_quote"
+    t.integer  "category_id"
   end
 
   add_index "works", ["created_at"], name: "index_works_on_created_at", using: :btree

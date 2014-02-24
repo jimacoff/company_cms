@@ -46,6 +46,7 @@ gem "simple-navigation"
 # Others
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap', '~> 1.0.0'
+gem 'gretel'
 gem 'faker', '~> 1.2.0'
 gem 'friendly_id', '~> 5.0.2'
 gem 'carrierwave'
@@ -59,6 +60,9 @@ end
 group :production do
   gem 'unicorn'
   gem 'newrelic_rpm'
+  gem 'rack-cache'
+  gem 'dalli'
+  gem 'kgio'
 end
 
 group :development, :test do
