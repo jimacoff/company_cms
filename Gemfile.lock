@@ -338,7 +338,7 @@ DEPENDENCIES
   rack-cache
   rails (= 4.0.2)
   rspec-rails (~> 2.14.0)
-  sass-rails
+  sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver (~> 2.39.0)
   simple-navigation
