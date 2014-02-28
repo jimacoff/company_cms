@@ -1,26 +1,3 @@
-@import "colors";
-
-$nprogress-color: $wood;
-@import 'nprogress';
-@import 'nprogress-bootstrap';
-
-
-// Global Nav
-.navbar-inverse {
-	@extend .bg-risk;
-		.navbar-nav {
-			li {
-				a {
-					@extend .antiq;
-					font-weight: 600;
-					&:hover {
-						@extend .carot;
-					}
-				}		
-			}
-		}
-}
-
 /* Login Form */
 .fullscreen_bg {
   position: fixed;
