@@ -1,0 +1,65 @@
+/*
+
+   SKINS
+   • Backgrounds
+   • Colors
+
+*/
+
+
+/* Backgrounds */
+
+@mixin bg-navy {    background-color: $navy; }
+@mixin bg-blue {    background-color: $blue; }
+@mixin bg-aqua {    background-color: $aqua; }
+@mixin bg-teal {    background-color: $teal; }
+@mixin bg-olive {   background-color: $olive; }
+@mixin bg-green {   background-color: $green; }
+@mixin bg-lime {    background-color: $lime; }
+@mixin bg-yellow {  background-color: $yellow; }
+@mixin bg-orange {  background-color: $orange; }
+@mixin bg-red {     background-color: $red; }
+@mixin bg-fuchsia { background-color: $fuchsia; }
+@mixin bg-purple {  background-color: $purple; }
+@mixin bg-maroon {  background-color: $maroon; }
+@mixin bg-white {   background-color: $white; }
+@mixin bg-gray {    background-color: $gray; }
+@mixin bg-silver {  background-color: $silver; }
+@mixin bg-black {   background-color: $black; }
+@mixin bg-cloud {   background-color: $cloud; }
+
+
+/* Colors */
+
+@mixin navy {       color: $navy; }
+@mixin blue {       color: $blue; }
+@mixin aqua {       color: $aqua; }
+@mixin teal {       color: $teal; }
+@mixin olive {      color: $olive; }
+@mixin green {      color: $green; }
+@mixin lime {       color: $lime; }
+@mixin yellow {     color: $yellow; }
+@mixin orange {     color: $orange; }
+@mixin red {        color: $red; }
+@mixin fuchsia {    color: $fuchsia; }
+@mixin purple {     color: $purple; }
+@mixin maroon {     color: $maroon; }
+@mixin white {      color: $white; }
+@mixin silver {     color: $silver; }
+@mixin gray {       color: $gray; }
+@mixin black {      color: $black; }
+@mixin cloud {      color: $cloud; }
+
+
+// Custom Palette
+
+// COLORS
+@mixin dino-navy { color: $dino-navy; } 
+@mixin dino-orange { color: $dino-orange; } 
+@mixin dino-cyan { color: $dino-cyan; } 
+
+// BACKGROUND
+
+@mixin bg-dino-navy { background-color: $dino-navy; } 
+@mixin bg-dino-orange { background-color: $dino-orange; } 
+@mixin bg-dino-cyan { background-color: $dino-cyan; } 
