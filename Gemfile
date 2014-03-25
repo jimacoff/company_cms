@@ -12,6 +12,9 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+# Add Compass Support
+gem 'compass-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -39,6 +42,9 @@ gem 'font-awesome-sass'
 gem 'nprogress-rails'
 gem 'dropzonejs-rails'
 gem 'parsley-rails'
+
+# Navigation & Breadcrumbs
+gem "simple-navigation"
 
 # Others
 gem 'will_paginate', '~> 3.0.5'
@@ -94,4 +100,8 @@ end
 group :test do
   gem 'selenium-webdriver', '~> 2.39.0'
   gem 'capybara', '~> 2.2.0'
+end
+
+group :assets do
+  
 end

@@ -31,10 +31,18 @@ $white:  #fff;
 $silver: #ddd;
 $gray:   #aaa;
 $black:  #111;
+$cloud:  #ecf0f1;
 
-// NORWEGIAN WOOD COLOR PALETTE
-$risk: 	  #3B3E37;
-$carot:   #E19563;
-$antiq:   #9FB39B;
-$rose:    #D39088;
-$wood:    #F0DDB5;
+// Custom Palette
+$dino-navy: #2b3d4f;
+$dino-orange: #f76d27;
+$dino-cyan: #1abc9c;
+
+
+// .smooth ($a: .5s) {
+// 	-webkit-transition: all $a;
+// 	   -moz-transition: all $a;
+// 	    -ms-transition: all $a;
+// 	     -o-transition: all $a;
+// 	        transition: all $a;
+// }
