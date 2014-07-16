@@ -50,7 +50,7 @@ crumb :new_work do |work|
 end
 
 crumb :new_task do |work|
-  link 'New Task', new_work_task(work)
+  link 'New Task', new_work_task_path(work)
   parent :work, work
 end
 
