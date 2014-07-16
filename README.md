@@ -1,5 +1,5 @@
 # Company Website  
-Documentation for Company Website
+A Basic CMS for a Company Website
   
 
 ## Setup Environments in MacOSX
